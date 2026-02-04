@@ -253,8 +253,7 @@ WHERE p.payment_status = 'Failed';
 -- Monthly order date
 SELECT MONTH(order_date) AS month,count(*) AS Total_order   
  FROM orders  
- GROUP BY MONTH(order_date)
- ORDER BY month;
+ GROUP BY MONTH(order_date);
  
  -- Average order value
 SELECT AVG(order_total) AS avg_order_value
@@ -323,4 +322,5 @@ FROM(
     JOIN order_items oi ON o.order_id = oi.order_id
     JOIN products p ON oi.product_id = p.product_id
     GROUP BY c.customer_id,c.customer_name
+
     ) AS customer_totals;
